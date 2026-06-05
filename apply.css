@@ -5,20 +5,23 @@
             --glass: rgba(255, 255, 255, 0.03);
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Inter', sans-serif;
         }
-
         body {
-            background-image: url(about.JPG);
+            background-image: url('apply.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: flex;
             background-blend-mode: overlay;
-            background-size: 100% 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
@@ -26,6 +29,7 @@
         .navbar {
             position: fixed;
             top: 0;
+            left: 0rem;
             width: 100%;
             padding: 1.2rem 8%;
             display: flex;
@@ -73,87 +77,59 @@
             font-weight: 700;
             opacity: 1;
         }
+        .container {
+            margin: 0 15px;
 
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        }
+        .form-box {
+            width: 100%;
+            max-width: 450px;
+            padding: 30px;
+            background: var(--glass);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            display: none;
+        }
+        h2 {
             text-align: center;
-            padding: 0 20px;
+            margin-bottom: 20px;
+            font-size: 34px;
         }
-
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
+        input,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: rgba(15, 23, 48, 0.8);
+            color: var(--text-light);
         }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            opacity: 0.9;
+        .form-box.active {
+            display: block;
         }
-
-        .accent { color: var(--accent); }
-
-        .btn-group {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
-
-        .btn-main {
-            padding: 1.2rem 2.5rem;
+        button {
+            width: 100%;
+            padding: 12px;
             background: var(--accent);
             color: var(--primary);
-            text-decoration: none;
-            border-radius: 50px;
+            border: none;
+            border-radius: 5px;
             font-weight: 700;
-            transition: var(--transition);
+            cursor: pointer;
+            margin-top: 10px;
         }
-
-        .btn-main:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3); }
-
-        .btn-outline {
-            padding: 1.2rem 2.5rem;
-            border: 2px solid white;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: 0.3s;
+        button:hover {
+            background: #ffae00cc;
+            transition: 1.5s;
         }
-
-        .btn-outline:hover { background: white; color: var(--primary); }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            padding: 8rem 10%;
-        }
-
-        .feature-card {
-            background: var(--glass);
-            padding: 4rem 2rem;
-            border-radius: 24px;
+        p {
+            font-size:14.5px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition);
+            margin-bottom: 10px;
         }
-
-        .feature-card:hover {
-            background: rgba(255,255,255,0.08);
-            transform: translateY(-15px);
-            border-color: var(--accent);
-        }
-
-        .feature-card i {
-            font-size: 3.5rem;
+        p a {
             color: var(--accent);
-            margin-bottom: 2rem;
+            text-decoration: none;
+            font-weight: 500;
         }
-
-        .feature-card h3 { margin-bottom: 1rem; font-size: 1.5rem; }
-
