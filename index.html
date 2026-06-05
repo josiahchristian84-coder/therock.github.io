@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Rock Christian School | Modern Education</title>
     <style>
         :root {
-            --primary: #0f172a;
             --accent: #ffae00;
             --primary-light: #1e293b;
             --text-light: #ffffff;
@@ -17,17 +16,15 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-
-
-
-
-
-
             
             font-family: 'Inter', sans-serif;
         }
         body {
-            background-color: var(--primary);
+            background-image: url('index.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: flex;
+            background-blend-mode: overlay;
             color: var(--text-light);
             line-height: 1.6;
             overflow-x: hidden;
@@ -83,6 +80,7 @@
             justify-content: center;
             text-align: center;
             padding: 0 20px;
+            color: rgb(121, 121, 121);
         }
         .hero-content h1 {
             font-size: clamp(2.5rem, 8vw, 4.5rem);
@@ -120,57 +118,66 @@
             transition: 0.3s;
         }
         .btn-outline:hover { background: white; color: var(--primary); }
+
         .features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
             padding: 8rem 10%;
-            background: #0f172a;
         }
+
         .feature-card {
             background: var(--glass);
+            color: rgb(255, 255, 255);
             padding: 4rem 2rem;
             border-radius: 24px;
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(0, 255, 242, 0);
             transition: var(--transition);
         }
+
         .feature-card:hover {
             background: rgba(255,255,255,0.08);
             transform: translateY(-15px);
             border-color: var(--accent);
         }
+
         .feature-card i {
             font-size: 3.5rem;
             color: var(--accent);
             margin-bottom: 2rem;
         }
+
         .feature-card h3 { margin-bottom: 1rem; font-size: 1.5rem; }
+
     </style>
 <head>
-    <meta name="google-site-verification" content="l6RTwxFSJ9D2BSVv9DNrc0kFmFDAfDRI80gok0bASIE" />
     <title>The Rock | Christian School</title>
-    <meta name="description" content="The Rock Christian School in Kitemu Uganda.">
-    <meta name="keywords" content="Schools in Kitemu, The Rock Christian School Kitemu, Building Godly Leaders, josiahchristian84">
+    <meta name="description" content="A detailed description of who you are, what you do, and the purpose of your website.">
+    <meta name="keywords" content="portfolio, The Rock Christian School, The Rock, josiahchristian84">
+    <meta name="google-site-verification" content="l6RTwxFSJ9D2BSVv9DNrc0kFmFDAfDRI80gok0bASIE" />
     <meta property="og:title" content="Welcome to My Portfolio" />
     <meta property="og:description" content="Check out my newly launched website hosted on GitHub Pages!" />
     <meta property="og:image" content="https://github.io" />
 </head>
-    <body>
-
+<body>
     <nav class="navbar">
         <div class="logo">The <span>Rock</span></div>
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About</a></li>
             <li><a href="academics.html">Academics</a></li>
             <li><a href="apply.html" class="btn-apply">Enroll Now</a></li>
         </ul>
+    </div>
+    <div class="picture">
+            <img src="picture.png" alt="Profile Picture" style="width: 40px; height: 40px; margin-right: -300rem; border-radius: 50%;">
+        </div>
     </nav>
     <header id="home" class="hero">
         <div class="hero-content">
             <h1 class="title">Built on Faith.<br>Ready for the <span class="accent">Future.</span></h1>
-            <class="title">A premier Christian education combining spiritual depth with modern academic rigor.<h2><span class="accent"> Proverbs 9.10</span></h2></p>
+            <p class="title">A premier Christian education combining spiritual depth with modern academic rigor.<h2><span class="accent"> Proverbs 9.10</span></h2></p>
             <div class="btn-group title">
                 <a href="apply.html" class="btn-main">Get Started</a>
             </div>
