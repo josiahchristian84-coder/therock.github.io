@@ -1,159 +1,209 @@
 :root {
-            --primary-light: #1e293b;
-            --accent: #ffae00;
-            --text-light: #ffffff;
-            --glass: rgba(255, 255, 255, 0.03);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
+    --primary-light: #1e293b;
+    --primary: #0f172a; /* Fixed: Added missing fallback variable used in buttons */
+    --accent: #ffae00;
+    --text-light: #ffffff;
+    --glass: rgba(255, 255, 255, 0.03);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-        body {
-            background-image: url(about.JPG);
-            background-size: cover;
-            background-position: center;
-            background-attachment: flex;
-            background-blend-mode: overlay;
-            background-size: 100% 100%;
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.2rem 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+body {
+    background-image: url('about.JPG');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Fixed: "flex" is invalid; scroll prevents mobile lag */
+    background-blend-mode: overlay;
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-        .logo span { color: var(--accent); }
+/* NAVBAR CONTENT */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.2rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Visual Anchor: Fixed iOS safari support */
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-        }
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Fixed: Prevents logo from splitting on tight screens */
+}
 
-        .nav-links li { margin-left: 2.5rem; }
+.logo span { color: var(--accent); }
 
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: 0.3s;
-            opacity: 0.8;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
 
-        .nav-links a:hover { opacity: 1; color: var(--accent); }
+.nav-links li { margin-left: 2.5rem; }
 
-        .btn-apply {
-            background: var(--accent);
-            color: var(--primary);
-            padding: 0.7rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 700;
-            opacity: 1;
-        }
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+    opacity: 0.8;
+}
 
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-        }
+.nav-links a:hover { opacity: 1; color: var(--accent); }
 
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
+.btn-apply {
+    background: var(--accent);
+    color: var(--primary);
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    opacity: 1;
+}
 
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            opacity: 0.9;
-        }
+/* HERO SECTION */
+.hero {
+    min-height: 100vh; /* Fixed: Changed height to min-height to handle text overflow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px 40px; /* Fixed: Added top padding so header doesn't clip content */
+}
 
-        .accent { color: var(--accent); }
+.hero-content h1 {
+    font-size: clamp(2rem, 6vw, 4.5rem); /* Fixed: Better scale limits for small viewports */
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
 
-        .btn-group {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Fixed: Added text fluid sizing */
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    opacity: 0.9;
+}
 
-        .btn-main {
-            padding: 1.2rem 2.5rem;
-            background: var(--accent);
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: var(--transition);
-        }
+.accent { color: var(--accent); }
 
-        .btn-main:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3); }
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap; /* Fixed: Wraps buttons stacked vertically on tiny phones */
+}
 
-        .btn-outline {
-            padding: 1.2rem 2.5rem;
-            border: 2px solid white;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
+.btn-main, .btn-outline {
+    padding: 1rem 2rem; /* Fixed: Unified sizing for mobile spacing match */
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    white-space: nowrap;
+    display: inline-block;
+}
 
-        .btn-outline:hover { background: white; color: var(--primary); }
+.btn-main {
+    background: var(--accent);
+    color: var(--primary);
+    transition: var(--transition);
+}
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            padding: 8rem 10%;
-        }
+.btn-main:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3); }
 
-        .feature-card {
-            background: var(--glass);
-            padding: 4rem 2rem;
-            border-radius: 24px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: var(--transition);
-        }
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    transition: 0.3s;
+}
 
-        .feature-card:hover {
-            background: rgba(255,255,255,0.08);
-            transform: translateY(-15px);
-            border-color: var(--accent);
-        }
+.btn-outline:hover { background: white; color: var(--primary); }
 
-        .feature-card i {
-            font-size: 3.5rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-        }
+/* FEATURES SECTION */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Fixed: 280px prevents box clipping */
+    gap: 2rem;
+    padding: 5rem 5%; /* Fixed: Optimized padding rules for standard devices */
+}
 
-        .feature-card h3 { margin-bottom: 1rem; font-size: 1.5rem; }
+.feature-card {
+    background: var(--glass);
+    padding: 3rem 1.5rem; /* Fixed: Reduced padding slightly to fit smaller displays */
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+    transition: var(--transition);
+}
 
+.feature-card:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-15px);
+    border-color: var(--accent);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 { margin-bottom: 1rem; font-size: 1.4rem; }
+
+
+/* RESPONSIVE MEDIA QUERIES */
+
+/* For Tablet Devices (Large Mobile / Tablets) */
+@media (max-width: 968px) {
+    .navbar {
+        padding: 1rem 5%;
+    }
+    .nav-links li {
+        margin-left: 1.5rem;
+    }
+    .features {
+        padding: 4rem 5%;
+    }
+}
+
+/* For Smartphones (Mobile Layout Transformation) */
+@media (max-width: 768px) {
+    /* Note: It's highly recommended to use JS to trigger a mobile hamburger menu class here. 
+       This CSS hides standard link arrays to prevent breaking the screen bounds horizontally */
+    .nav-links {
+        display: none; 
+    }
+    
+    .hero {
+        padding-top: 100px;
+    }
+    
+    .btn-group {
+        flex-direction: column; /* Stacks links vertically */
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .btn-main, .btn-outline {
+        text-align: center;
+        width: 100%;
+    }
+}

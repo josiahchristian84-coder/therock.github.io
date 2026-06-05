@@ -1,135 +1,242 @@
 :root {
-            --primary-light: #1e293b;
-            --accent: #ffae00;
-            --text-light: #ffffff;
-            --glass: rgba(255, 255, 255, 0.03);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+    --primary-light: #1e293b;
+    --primary: #0f172a; /* Fixed: Added missing fallback variable used in buttons */
+    --accent: #ffae00;
+    --text-light: #ffffff;
+    --glass: rgba(255, 255, 255, 0.03);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-        body {
-            background-image: url('apply.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: flex;
-            background-blend-mode: overlay;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0rem;
-            width: 100%;
-            padding: 1.2rem 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+body {
+    background-image: url('apply.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Fixed: "flex" is invalid; scroll prevents mobile lag */
+    background-blend-mode: overlay;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Fixed: Changed height to min-height to handle form height on tiny screens */
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding: 100px 20px 40px; /* Fixed: Prevents the fixed navbar from overlapping the form box */
+}
 
-        .logo span { color: var(--accent); }
+/* NAVBAR CONTENT */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0; /* Fixed: Removed rem unit value error */
+    width: 100%;
+    padding: 1.2rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Visual Anchor: Added iOS support */
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-        }
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Fixed: Prevents logo from splitting on tight screens */
+}
 
-        .nav-links li { margin-left: 2.5rem; }
+.logo span { color: var(--accent); }
 
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: 0.3s;
-            opacity: 0.8;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
 
-        .nav-links a:hover { opacity: 1; color: var(--accent); }
+.nav-links li { margin-left: 2.5rem; }
 
-        .btn-apply {
-            background: var(--accent);
-            color: var(--primary);
-            padding: 0.7rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 700;
-            opacity: 1;
-        }
-        .container {
-            margin: 0 15px;
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+    opacity: 0.8;
+}
 
-        }
-        .form-box {
-            width: 100%;
-            max-width: 450px;
-            padding: 30px;
-            background: var(--glass);
-            border-radius: 10px;
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            display: none;
-        }
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 34px;
-        }
-        input,
-        select {
-            width: 100%;
-            padding: 12px 15px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 5px;
-            background: rgba(15, 23, 48, 0.8);
-            color: var(--text-light);
-        }
-        .form-box.active {
-            display: block;
-        }
-        button {
-            width: 100%;
-            padding: 12px;
-            background: var(--accent);
-            color: var(--primary);
-            border: none;
-            border-radius: 5px;
-            font-weight: 700;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-        button:hover {
-            background: #ffae00cc;
-            transition: 1.5s;
-        }
-        p {
-            font-size:14.5px;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        p a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
+.nav-links a:hover { opacity: 1; color: var(--accent); }
+
+.btn-apply {
+    background: var(--accent);
+    color: var(--primary);
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    opacity: 1;
+}
+
+/* CONTAINER AND FORM BOX */
+.container {
+    width: 100%;
+    max-width: 450px; /* Fixed: Keeps form container layout restricted to design limits */
+    margin: 0 auto;
+}
+
+.form-box {
+    width: 100%;
+    padding: 40px 30px;
+    background: rgba(30, 41, 59, 0.4); /* Fixed: Better readability using glass background fallback colors */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px; /* Fixed: Adjusted corner curves for modern aesthetic matching */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.form-box.active {
+    display: block;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: clamp(1.8rem, 5vw, 2.1rem); /* Fixed: Enabled fluid font scaling for phone screens */
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+/* INPUTS AND CONTROLS */
+input,
+select {
+    width: 100%;
+    padding: 12px 16px;
+    margin: 8px 0 16px; /* Fixed: Normalized margins for smoother field alignment */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Fixed: Subtle borders make field boundaries visible */
+    border-radius: 8px;
+    background: rgba(15, 23, 42, 0.8);
+    color: var(--text-light);
+    font-size: 1rem; /* Fixed: Prevents automatic iOS input zoom glitches */
+    outline: none;
+    transition: 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(255, 174, 0, 0.15);
+}
+
+button {
+    width: 100%;
+    padding: 14px; /* Fixed: Increased hit area for touch targets on phones */
+    background: var(--accent);
+    color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease; /* Fixed: Adjusted transition timing to avoid click delay feeling */
+}
+
+button:hover {
+    background: #ffc44d;
+    transform: translateY(-1px);
+}
+
+p {
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px; /* Fixed: Re-arranged alignment space below submit buttons */
+    margin-bottom: 0;
+    opacity: 0.85;
+}
+
+p a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE MEDIA QUERIES */
+
+/* For Small Displays (Smartphones) */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hides desktop navigation links on small screens */
+    }
+    
+    body {
+        padding-top: 90px; /* Shifts active form frame space dynamically */
+    }
+
+    .form-box {
+        padding: 30px 20px; /* Shinks active padding borders down to protect interface space */
+    }
+}
+/* Add these additions to your existing optimized apply.css file */
+
+/* PROFILE PICTURE ALIGNMENT */
+.picture {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem; /* Pushes picture gracefully right of navigation link row */
+}
+
+.picture img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent); /* Visual Anchor: Matches brand accent theme */
+}
+
+/* FORM OVERRIDES & BUTTON FIXES */
+form {
+    width: 100%;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent);
+    color: var(--primary);
+    border: none;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: #ffc44d;
+    transform: translateY(-1px);
+}
+
+/* RESPONSIVE SUB-CONTAINER UPDATES */
+@media (max-width: 768px) {
+    .picture {
+        margin-left: 0;
+        position: absolute;
+        right: 5%; /* Pin profile layout safely on top bar area for phones */
+        top: 1.2rem;
+    }
+}

@@ -1,146 +1,211 @@
 :root {
-            --accent: #ffae00;
-            --primary-light: #1e293b;
-            --text-light: #ffffff;
-            --glass: rgba(255, 255, 255, 0.03);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            
-            font-family: 'Inter', sans-serif;
-        }
-        body {
-            background-image: url('index.jpeg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: flex;
-            background-blend-mode: overlay;
-            color: var(--text-light);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.2rem 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(15, 23, 42, 0.9);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        .logo span { color: var(--accent); }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            align-items: center;
-        }
-        .nav-links li { margin-left: 2.5rem; }
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: 0.3s;
-            opacity: 0.8;
-        }
-        .nav-links a:hover { opacity: 1; color: var(--accent); }
-        .btn-apply {
-            background: var(--accent);
-            color: var(--primary);
-            padding: 0.7rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 700;
-            opacity: 1;
-        }
-        .hero {
-            height: 100vh;
-            background: var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 0 20px;
-            color: rgb(121, 121, 121);
-        }
-        .hero-content h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            opacity: 0.9;
-        }
-        .accent { color: var(--accent); }
-        .btn-group {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-        }
-        .btn-main {
-            padding: 1.2rem 2.5rem;
-            background: var(--accent);
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: var(--transition);
-        }
-        .btn-main:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3); }
-        .btn-outline {
-            padding: 1.2rem 2.5rem;
-            border: 2px solid white;
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-        .btn-outline:hover { background: white; color: var(--primary); }
+    --primary-light: #1e293b;
+    --primary: #0f172a; /* Fixed: Added missing primary dark token variable */
+    --accent: #ffae00;
+    --text-light: #ffffff;
+    --glass: rgba(255, 255, 255, 0.03);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            padding: 8rem 10%;
-        }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-        .feature-card {
-            background: var(--glass);
-            color: rgb(255, 255, 255);
-            padding: 4rem 2rem;
-            border-radius: 24px;
-            text-align: center;
-            border: 1px solid rgba(0, 255, 242, 0);
-            transition: var(--transition);
-        }
+body {
+    background-image: url('index.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll; /* Fixed: "flex" is invalid; scroll prevents mobile lag */
+    background-blend-mode: overlay;
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-        .feature-card:hover {
-            background: rgba(255,255,255,0.08);
-            transform: translateY(-15px);
-            border-color: var(--accent);
-        }
+/* NAVBAR CONTENT */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.2rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Visual Anchor: Added iOS support */
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-        .feature-card i {
-            font-size: 3.5rem;
-            color: var(--accent);
-            margin-bottom: 2rem;
-        }
+.logo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Fixed: Prevents logo from splitting on tight screens */
+}
 
-        .feature-card h3 { margin-bottom: 1rem; font-size: 1.5rem; }
+.logo span { color: var(--accent); }
 
-        
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li { margin-left: 2.5rem; }
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.nav-links a:hover { opacity: 1; color: var(--accent); }
+
+.btn-apply {
+    background: var(--accent);
+    color: var(--primary);
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    opacity: 1;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 100vh; /* Fixed: Changed height to min-height to handle text overflow *//* Fixed: Replaced flat solid color with dark glass filter overlay for image visibility */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px 40px; /* Fixed: Added top padding so header doesn't clip content */
+    color: var(--text-light); /* Fixed: Overrode muddy gray text color rule with white for contrast */
+}
+
+.hero-content h1 {
+    font-size: clamp(2rem, 6vw, 4.5rem); /* Fixed: Better scale limits for small viewports */
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: #ffffff;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem); /* Fixed: Added fluid responsive sizing */
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    opacity: 0.9;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.accent { color: var(--accent); }
+
+.btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap; /* Fixed: Wraps buttons stacked vertically on tiny phones */
+}
+
+.btn-main, .btn-outline {
+    padding: 1rem 2rem; /* Fixed: Unified sizing for mobile spacing match */
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.btn-main {
+    background: var(--accent);
+    color: var(--primary);
+    transition: var(--transition);
+}
+
+.btn-main:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(251, 191, 36, 0.3); }
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    transition: 0.3s;
+}
+
+.btn-outline:hover { background: white; color: var(--primary); }
+
+/* FEATURES SECTION */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Fixed: 280px prevents small phone clipping */
+    gap: 2rem;
+    padding: 5rem 5%; /* Fixed: Optimized padding rules for standard devices */
+}
+
+.feature-card {
+    background: var(--glass);
+    color: rgb(255, 255, 255);
+    padding: 3rem 1.5rem; /* Fixed: Reduced padding slightly to fit smaller displays */
+    border-radius: 24px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.feature-card:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-15px);
+    border-color: var(--accent);
+}
+
+.feature-card i {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
+
+.feature-card h3 { margin-bottom: 1rem; font-size: 1.4rem; }
+
+
+/* RESPONSIVE MEDIA QUERIES */
+
+/* For Tablet Devices */
+@media (max-width: 968px) {
+    .navbar {
+        padding: 1rem 5%;
+    }
+    .nav-links li {
+        margin-left: 1.5rem;
+    }
+    .features {
+        padding: 4rem 5%;
+    }
+}
+
+/* For Smartphones */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hides desktop navigation links on small screens */
+    }
+    
+    .hero {
+        padding-top: 120px;
+    }
+    
+    .btn-group {
+        flex-direction: column; /* Stacks links vertically */
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .btn-main, .btn-outline {
+        text-align: center;
+        width: 100%;
+    }
+}

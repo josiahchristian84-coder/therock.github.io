@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations | The Rock</title>
+<style>
+    /* Importing Inter Font */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;800&display=swap');
+
+    /* Global Reset and Flex Layout Styling */
+    body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #0f172a; /* Matches index.css primary dark theme */
+        display: flex;
+        flex-direction: column; /* Stacks text and button vertically */
+        justify-content: center; /* Centers items vertically */
+        align-items: center; /* Centers items horizontally */
+        overflow: hidden;
+        font-family: 'Inter', sans-serif;
+        gap: 2rem; /* Creates a clean space between title and button */
+    }
+
+    /* 3D Static Text Engine Styling */
+    .congratulations-title {
+        font-size: clamp(2rem, 5vw, 4rem); /* Automatically adapts size dynamically for mobile screens */
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #ffae00; /* Matches standard school accent color variable */
+        text-align: center;
+        letter-spacing: 2px;
+        margin: 0;
+        
+        /* Layered text shadows create an authentic 3D extrusion depth perspective without animation */
+        text-shadow: 
+            0px 1px 0px #d49200,
+            0px 2px 0px #b87f00,
+            0px 3px 0px #a16f00,
+            0px 4px 0px #8a5f00,
+            0px 5px 0px #734f00,
+            0px 6px 1px rgba(0,0,0,0.1),
+            0px 0px 5px rgba(0,0,0,0.1),
+            0px 1px 3px rgba(0,0,0,0.3),
+            0px 3px 5px rgba(0,0,0,0.2),
+            0px 5px 10px rgba(0,0,0,0.25);
+    }
+
+    /* Return Button Styling */
+    .btn-main {
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #0f172a; 
+        background-color: #ffae00; 
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .btn-main:hover {
+        background-color: #e59400; /* Slightly darker shade for hover effect */
+        transform: translateY(-3px);
+    }
+</style>
+</head>
+<body>
+
+    <!-- Main Title Header -->
+    <h2 class="congratulations-title">Thank You for Registering!</h2>
+    
+    <!-- Action Button Interface (Fixed list tag structural bug) -->
+    <a href="index.html" class="btn-main">Return to Home</a>
+
+</body>
+</html>
