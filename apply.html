@@ -1,0 +1,203 @@
+<a?php
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enroll | The Rock Christian School</title>
+    <style>
+        :root {
+            --primary-light: #1e293b;
+            --accent: #ffae00;
+            --text-light: #ffffff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        body {
+            background-image: url('apply.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: flex;
+            background-blend-mode: overlay;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0rem;
+            width: 100%;
+            padding: 1.2rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span { color: var(--accent); }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links li { margin-left: 2.5rem; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+            opacity: 0.8;
+        }
+
+        .nav-links a:hover { opacity: 1; color: var(--accent); }
+
+        .btn-apply {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            opacity: 1;
+        }
+        .container {
+            margin: 0 15px;
+
+        }
+        .form-box {
+            width: 100%;
+            max-width: 450px;
+            padding: 30px;
+            background: var(--glass);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            display: none;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 34px;
+        }
+        input,
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: rgba(15, 23, 48, 0.8);
+            color: var(--text-light);
+        }
+        .form-box.active {
+            display: block;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 5px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #ffae00cc;
+            transition: 1.5s;
+        }
+        p {
+            font-size:14.5px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        p a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">The <span>Rock</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="apply.html" class="btn-apply">Enroll Now</a></li>
+        </ul>
+    </div>
+    <div class="picture">
+            <img src="picture.png" alt="Profile Picture" style="width: 40px; height: 40px; margin-right: -300rem; border-radius: 50%;">
+        </div>
+    </nav>
+        <div class="container">
+            <div class="form-box active" id="login-form">
+            <form action="login_register.php" method="post">
+            <h2>Login</h2>
+            <input type="email" class="form-input" placeholder="Email Address">
+            <input type="password" class="form-input" placeholder="Password">
+                <button class="btn-submit">Login</button>
+            <p class="form-footer-text">
+                If you don't have an account, click <a href="#" onclick="showForm('register-form')">Register</a>.
+            </p>
+            </form>
+        </div>
+        <div class="form-box" id="register-form">
+        <form action="login_register.php" method="post">
+            <h2>Register</h2>
+            <input type="text" name="student_name" class="form-input" placeholder="Student Name" required>
+            <input type="email" name="parent_email" class="form-input" placeholder="Parent/Guardian Email Address" required>
+            <select name="selected_course" class="form-input" required>
+                <option value="" disabled selected>Select Course</option>
+                <option value="Kindergarten">Kindergarten</option>
+                <option value="Nursery">Nursery</option>
+                <option value="Primary">Primary</option>
+                <option value="ACE">A.C.E</option>
+                </select>
+            <input type="number" name="age" class="form-input" placeholder="Age" required>
+            <input type="password" name="register_password" class="form-input" placeholder="Password" required>
+            <input type="password" name="confirm_password" class="form-input" placeholder="Confirm Password" required>
+            <button type="submit" name="submit_register" class="btn-submit"><li><a href="index.html">Register</button></a></li>
+            <p class="form-footer-text">
+                Already have an account? Click <a href="#" onclick="showForm('login-form')">Login</a>.
+            </p>
+        </form>
+        </div>
+    <script>
+        function showForm(formId) {
+            document.querySelectorAll(".form-box").forEach(form => form.classList.remove("active"));
+            document.getElementById(formId).classList.add("active");
+        }
+    </script>
+    
+</body>
+</html>
