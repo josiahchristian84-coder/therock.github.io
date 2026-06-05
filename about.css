@@ -13,7 +13,7 @@
         }
 
         body {
-            background-image: url('about.jpg');
+            background-image: url(about.JPG);
             background-size: cover;
             background-position: center;
             background-attachment: flex;
